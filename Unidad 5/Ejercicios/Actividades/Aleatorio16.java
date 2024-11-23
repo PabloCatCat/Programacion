@@ -2,7 +2,11 @@ import java.util.Scanner;
 
 public class Aleatorio16 {
     public static void main(String[] args) {
+        Aleatorio16 programa=new Aleatorio16();
+        programa.inicio();
+    }
 
+    private void inicio() {
         int euros;
         String figura1 = "", figura2 = "", figura3 = "", respuesta = "";
 
@@ -21,18 +25,9 @@ public class Aleatorio16 {
                     figura3 = getFigura();
             }
             System.out.println(figura1 + " " + figura2 + " " + figura3);
-            if (figura1.equals(figura2) && figura1.equals(figura3)){
-                System.out.println("Enhorabuena, has ganado 10 euros");
-                euros+=10;
-            }
-            else if (figura1.equals(figura2) || figura1.equals(figura3) || figura2.equals(figura3)) {
-                System.out.println("Bien, has recuperado tu euro.");
-                euros++;
-            }
-            else{
-                System.out.println("Lo siento, ha perdido");
-            }
+            euros = getResultado(euros,figura1,figura2,figura3);
             System.out.println("Tienes " + euros + "€");
+
             if(euros>0){
                 do {
                     respuesta=getRespuesta();
@@ -41,6 +36,21 @@ public class Aleatorio16 {
             }
         }while (euros > 0 && respuesta.equalsIgnoreCase("si"));
         System.out.println("Has acabado con " + euros + "€");
+    }
+
+    private int getResultado(int euros, String figura1, String figura2, String figura3) {
+        if (figura1.equals(figura2) && figura1.equals(figura3)){
+            System.out.println("Enhorabuena, has ganado 10 euros");
+           return  euros+=10;
+        }
+        else if (figura1.equals(figura2) || figura1.equals(figura3) || figura2.equals(figura3)) {
+            System.out.println("Bien, has recuperado tu euro.");
+            return euros+=1;
+        }
+        else{
+            System.out.println("Lo siento, ha perdido");
+            return euros;
+        }
     }
 
     private static String getRespuesta() {
