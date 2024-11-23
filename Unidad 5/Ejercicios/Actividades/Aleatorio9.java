@@ -1,7 +1,7 @@
 public class Aleatorio9 {
     public static void main(String[] args) {
 
-        int num,cont=0;
+        int num,cont=0,suma=0;
 
         do {
            num=(int)(Math.random()*101);

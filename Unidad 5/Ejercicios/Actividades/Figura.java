@@ -2,11 +2,6 @@ import java.util.Scanner;
 
 public class Figura {
     public static void main(String[] args) {
-        Figura programa=new Figura();
-        programa.inicio();
-    }
-
-    private void inicio() {
         int altura;
 
         altura = getAltura();
@@ -14,38 +9,26 @@ public class Figura {
     }
 
     private static void imprimirFigura(int altura) {
-        int alturaAct;
+        int alturaAct,asteriscos;
 
         for (alturaAct=1;alturaAct<=altura;alturaAct++){
             if (alturaAct>=(altura/2)+1){
-                imprimirSegundaMitad(alturaAct,altura);
+                for (asteriscos=1;asteriscos<=alturaAct-altura/2;asteriscos++){
+                    System.out.print("*");
+                }
+                System.out.println();
             }else if (altura%2==0){
-                imprimirMitadPar(alturaAct,altura);
+                for (asteriscos=1;asteriscos<=altura/2-alturaAct+1;asteriscos++){
+                    System.out.print("*");
+                }
+                System.out.println();
             }else {
-                imprimirMitadImpar(altura,alturaAct);
+                for (asteriscos = 1; asteriscos <= altura/2-alturaAct+2; asteriscos++) {
+                    System.out.print("*");
+                }
+                System.out.println();
             }
         }
-    }
-
-    private static void imprimirMitadImpar(int altura, int alturaAct) {
-        for (int asteriscos = 1; asteriscos <= altura/2-alturaAct+2; asteriscos++) {
-            System.out.print("*");
-        }
-        System.out.println();
-    }
-
-    private static void imprimirMitadPar(int alturaAct, int altura) {
-        for (int asteriscos=1;asteriscos<=altura/2-alturaAct+1;asteriscos++){
-            System.out.print("*");
-        }
-        System.out.println();
-    }
-
-    private static void imprimirSegundaMitad(int alturaAct, int altura) {
-        for (int asteriscos=1;asteriscos<=alturaAct-altura/2;asteriscos++){
-            System.out.print("*");
-        }
-        System.out.println();
     }
 
     private static int getAltura() {

@@ -2,31 +2,25 @@ import java.util.Scanner;
 
 public class Aleatorio16 {
     public static void main(String[] args) {
-        Aleatorio16 programa=new Aleatorio16();
-        programa.inicio();
-    }
 
-    private void inicio() {
         int euros;
         String figura1 = "", figura2 = "", figura3 = "", respuesta = "";
 
-        euros = getEuros();
+        euros=getEuros();
 
         System.out.println();
 
         do {
             euros--;
             for (int tir = 1; tir <= 3; tir++) {
-                if (tir==1)
-                    figura1=getFigura();
-                else if (tir==2)
-                    figura2=getFigura();
+                if (tir == 1)
+                    figura1 = getFigura();
+                else if (tir == 2)
+                    figura2 = getFigura();
                 else
-                    figura3=getFigura();
+                    figura3 = getFigura();
             }
-
             System.out.println(figura1 + " " + figura2 + " " + figura3);
-
             if (figura1.equals(figura2) && figura1.equals(figura3)){
                 System.out.println("Enhorabuena, has ganado 10 euros");
                 euros+=10;
@@ -42,27 +36,26 @@ public class Aleatorio16 {
             if(euros>0){
                 do {
                     respuesta=getRespuesta();
-                    if (!respuesta.equalsIgnoreCase("si")&&!respuesta.equalsIgnoreCase("no"))
-                        System.out.println("Error, escribe si o no");
                 }while(!respuesta.equalsIgnoreCase("si")&&!respuesta.equalsIgnoreCase("no"));
                 System.out.println();
             }
-        }while (euros > 0&&respuesta.equalsIgnoreCase("si"));
+        }while (euros > 0 && respuesta.equalsIgnoreCase("si"));
         System.out.println("Has acabado con " + euros + "€");
     }
 
     private static String getRespuesta() {
         Scanner sc=new Scanner(System.in);
 
+
         System.out.println("¿Quieres continuar?");
-        return sc.next();
+        String respuesta=sc.next();
+        if (!respuesta.equalsIgnoreCase("si")&&!respuesta.equalsIgnoreCase("no"))
+            System.out.println("Error, escribe si o no");
+        return respuesta;
     }
 
     private static String getFigura() {
-        int figuraNum;
-
-        figuraNum = (int)(Math.random() * 6);
-
+        int figuraNum = (int) (Math.random() * 5 + 1);
         switch (figuraNum) {
             case 1:
                 return "corazón";
@@ -78,7 +71,7 @@ public class Aleatorio16 {
     }
 
     private static int getEuros() {
-        Scanner sc = new Scanner(System.in);
+        Scanner sc=new Scanner(System.in);
         int euros;
 
         do {
