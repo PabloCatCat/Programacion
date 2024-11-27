@@ -26,16 +26,19 @@ public class Aleatorio16 {
             }
             System.out.println(figura1 + " " + figura2 + " " + figura3);
             euros = getResultado(euros,figura1,figura2,figura3);
-            System.out.println("Tienes " + euros + "€");
 
             if(euros>0){
                 do {
+                    System.out.println("Tienes " + euros + "€");
                     respuesta=getRespuesta();
                 }while(!respuesta.equalsIgnoreCase("si")&&!respuesta.equalsIgnoreCase("no"));
                 System.out.println();
             }
         }while (euros > 0 && respuesta.equalsIgnoreCase("si"));
-        System.out.println("Has acabado con " + euros + "€");
+        if (euros>0)
+            System.out.println("Has acabado con " + euros + "€");
+        else
+            System.out.println("Te has quedado sin dinero.");
     }
 
     private int getResultado(int euros, String figura1, String figura2, String figura3) {
