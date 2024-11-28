@@ -5,9 +5,12 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/Unidad 5/Ejercicios/Ejemplos" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/out" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/Unidad 3" />
       <excludeFolder url="file://$MODULE_DIR$/Unidad 4" />
+      <excludeFolder url="file://$MODULE_DIR$/Unidad 5" />
     </content>
+    <content url="file://$MODULE_DIR$/out" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
