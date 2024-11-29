@@ -1,5 +1,3 @@
-import com.sun.scenario.animation.shared.ClipEnvelope;
-
 import java.util.Scanner;
 
 public class Act7 {
@@ -43,10 +41,17 @@ public class Act7 {
     }
 
     private void printArray(int[] num) {
+        String resultado;
+        resultado=getResultado(num);
+        System.out.println(resultado);
+    }
+
+    private String getResultado(int[] num) {
+        String resultado="";
         for (int i = 0; i < num.length; i++){
-            printPantalla(num[i] + " | ");
+            resultado+=num[i] + " | ";
         }
-        System.out.println();
+        return resultado;
     }
 
     private void printPantalla(String s) {
