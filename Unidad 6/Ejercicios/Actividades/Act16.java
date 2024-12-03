@@ -18,7 +18,7 @@ public class Act16 {
                 numPersonas=getNum();
                 if(numPersonas==-1)
                     fin=true;
-                else if (numPersonas>=0){
+                else {
                     asignarMesa(numPersonas,personas);
             }
 
