@@ -28,18 +28,34 @@ public class Act16 {
     }
 
     private void printInterfaz(int[] personas) {
-        printLineas();
+        printLineasArriba();
         printNumMesas(personas);
-        printLineas();
+        printLineasMedio();
         printMesas(personas);
-        printLineas();
+        printLineasAbajo();
         System.out.println();
+    }
+
+    private void printLineasAbajo() {
+        printPantalla("└");
+        for (int i=1;i<=59;i++){
+            printPantalla("─");
+        }
+        System.out.println("┘");
+    }
+
+    private void printLineasMedio() {
+        printPantalla("├");
+        for (int i=1;i<=59;i++){
+            printPantalla("─");
+        }
+        System.out.println("┤");
     }
 
     private void printMesas(int[] personas) {
         printPantalla("|Ocupación| ");
         for (int i=0;i<personas.length;i++){
-            printPantalla(personas[i] + " | ");
+            System.out.printf("%2d | ",personas[i]);
         }
         System.out.println();
     }
@@ -47,16 +63,17 @@ public class Act16 {
     private void printNumMesas(int[] personas) {
         printPantalla("| Mesa Nº | ");
         for (int i=0;i< personas.length;i++){
-            printPantalla((i+1) + " | ");
+            System.out.printf("%2d | ",(i+1));
         }
         System.out.println();
     }
 
-    private void printLineas() {
-        for (int i=1;i<=52;i++){
-            printPantalla("-");
+    private void printLineasArriba() {
+        printPantalla("┌");
+        for (int i=1;i<=59;i++){
+            printPantalla("─");
         }
-        System.out.println();
+        System.out.println("┐");
     }
 
     private void asignarPersonas(int[] personas) {
