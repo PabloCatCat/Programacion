@@ -13,17 +13,13 @@ public class Act16 {
 
         asignarPersonas(personas);
         do {
-            if (!fin){
-                printInterfaz(personas);
-                numPersonas=getNum();
-                if(numPersonas==-1)
-                    fin=true;
-                else {
-                    asignarMesa(numPersonas,personas);
-            }
 
-            }
-
+            printInterfaz(personas);
+            numPersonas=getNum();
+            if(numPersonas==-1)
+                fin=true;
+            else
+                asignarMesa(numPersonas,personas);
         }while(!fin);
     }
 
@@ -39,7 +35,10 @@ public class Act16 {
     private void printLineasAbajo() {
         printPantalla("└");
         for (int i=1;i<=59;i++){
-            printPantalla("─");
+            if (i%5==0&&i>6)
+                printPantalla("┴");
+            else
+                printPantalla("─");
         }
         System.out.println("┘");
     }
@@ -47,7 +46,10 @@ public class Act16 {
     private void printLineasMedio() {
         printPantalla("├");
         for (int i=1;i<=59;i++){
-            printPantalla("─");
+            if (i%5==0&&i>6)
+                printPantalla("┼");
+            else
+                printPantalla("─");
         }
         System.out.println("┤");
     }
@@ -71,7 +73,10 @@ public class Act16 {
     private void printLineasArriba() {
         printPantalla("┌");
         for (int i=1;i<=59;i++){
-            printPantalla("─");
+            if (i%5==0&&i>6)
+                printPantalla("┬");
+            else
+                printPantalla("─");
         }
         System.out.println("┐");
     }
@@ -117,9 +122,9 @@ public class Act16 {
         do {
             printPantalla("¿Cuántos son? (Introduzca -1 para salir del programa): ");
             num = sc.nextInt();
-            if (num!=-1&&num<0||num>4)
+            if (num!=-1&&num<1||num>4)
                 printPantalla("Lo siento, no admitimos grupos de " + num + ", haga grupos de 4 personas como máximo e intente de nuevo\n");
-        }while(num!=-1&&num<0||num>4);
+        }while(num!=-1&&num<1||num>4);
         return num;
     }
 
