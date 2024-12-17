@@ -49,18 +49,18 @@ public class Act2_2 {
 
         for (int i=0;i< num.length;i++){
             for (int j=0;j<num[i].length;j++){
-            printPantalla(num[i][j] + " | ");
+            printFormato("%9d | ", num[i][j]);
             }
-            printPantalla(sumaFilas[i] + " |\n");
+            printFormato("Suma: %5" +
+                    "d | %n", sumaFilas[i]);
         }
         for (int i = 0; i < sumaColumnas.length; i++) {
-            printPantalla(sumaColumnas[i] + " | ");
+            printFormato("Suma: %d | ", sumaColumnas[i]);
         }
-        printPantalla(total +" |\n");
+        printFormato("Total: %d |%n ", total);
     }
-
-    private void printPantalla(String s) {
-        System.out.print(s);
+    private void printFormato(String s, int variable) {
+        System.out.printf(s,variable);
     }
 
     private void rellenarArray(int[][] num) {
@@ -74,9 +74,7 @@ public class Act2_2 {
     private int getAleatorio() {
         int num;
 
-        do {
-            num=(int)(Math.random()*101);
-        }while(num%2!=0);
+        num=((int)(Math.random()*51))*2;
         return num;
     }
 
