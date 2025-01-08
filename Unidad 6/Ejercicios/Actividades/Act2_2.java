@@ -66,15 +66,15 @@ public class Act2_2 {
     private void rellenarArray(int[][] num) {
         for (int i=0;i< num.length;i++){
             for (int j=0;j<num[i].length;j++){
-                num[i][j] = getAleatorio();
+                num[i][j] = getAleatorio(0,100);
             }
         }
     }
 
-    private int getAleatorio() {
+    private int getAleatorio(int min, int max) {
         int num;
 
-        num=((int)(Math.random()*51))*2;
+        num=((int)(Math.random()*max-min+1)+min)*2;
         return num;
     }
 
